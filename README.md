@@ -7,18 +7,6 @@ The Asset Management Dashboard is a web application designed for managing and vi
 - **asset-management-dashboard/**: Contains the React application for the user interface.
 - **fastapi-backend/**: Contains the FastAPI application for handling API requests and authentication.
 
-## Features
-
-- **Frontend**:
-  - Manage and view different types of assets.
-  - User authentication (login and registration).
-  - Responsive and modern UI with navigation and asset management pages.
-
-- **Backend**:
-  - User authentication endpoints for login and registration.
-  - Basic asset management endpoints.
-  - Runs on FastAPI and can be extended for additional functionality.
-
 ## Setup
 
 ### Prerequisites
