@@ -1,6 +1,8 @@
 # Asset Management Dashboard
 
 The Asset Management Dashboard is a web application designed for managing and visualizing various types of assets, including commodities, currencies, rials, and stocks. The application has a React frontend and a FastAPI backend, providing a modern and efficient user experience for asset management.
+<img src="WebShot.png" alt="Git Flow" width="600" height="300" align="center">
+
 
 ## Project Structure
 
