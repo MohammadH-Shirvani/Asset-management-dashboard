@@ -17,7 +17,6 @@ The Asset Management Dashboard is a web application designed for managing and vi
 ### Prerequisites
 
 - [Docker](https://www.docker.com/get-started)
-- [Docker Compose](https://docs.docker.com/compose/install/)
 
 ### Getting Started
 
