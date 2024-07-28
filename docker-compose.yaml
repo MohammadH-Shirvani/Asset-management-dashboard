@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  frontend:
+    build:
+      context: ./asset-management-dashboard
+      dockerfile: Dockerfile
+    container_name: react-frontend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./fastapi-backend
+      dockerfile: Dockerfile
+    container_name: fastapi-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./test.db
