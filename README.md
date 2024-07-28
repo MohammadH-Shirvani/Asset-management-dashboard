@@ -4,8 +4,8 @@ The Asset Management Dashboard is a web application designed for managing and vi
 
 ## Project Structure
 
-- **frontend/**: Contains the React application for the user interface.
-- **backend/**: Contains the FastAPI application for handling API requests and authentication.
+- **asset-management-dashboard/**: Contains the React application for the user interface.
+- **fastapi-backend/**: Contains the FastAPI application for handling API requests and authentication.
 
 ## Features
 
