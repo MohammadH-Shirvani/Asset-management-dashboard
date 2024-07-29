@@ -2,40 +2,44 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleLogin = () => {
-    axios.post('/auth/login', { email, password })
-      .then(response => {
-        localStorage.setItem('token', response.data.token);
-        console.log('Login successful:', response.data);
-        setError('');
-      })
-      .catch(error => {
-        console.error('There was an error logging in:', error);
-        setError('Invalid credentials, please try again.');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:8000/login', {
+        username,
+        password
       });
+      setMessage(response.data.message);
+    } catch (error) {
+      setMessage(error.response.data.detail || 'An error occurred');
+    }
   };
 
   return (
-    <div>
+    <div className="auth-container">
       <h2>Login</h2>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit">Login</button>
+        {message && <p>{message}</p>}
+      </form>
     </div>
   );
 };

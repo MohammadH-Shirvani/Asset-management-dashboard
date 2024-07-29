@@ -2,27 +2,53 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const Register = () => {
-  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleRegister = () => {
-    axios.post('/auth/register', { username, email, password })
-      .then(response => {
-        console.log('User registered:', response.data);
-      })
-      .catch(error => {
-        console.error('There was an error!', error);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:8000/register', {
+        email,
+        username,
+        password
       });
+      setMessage(response.data.message);
+    } catch (error) {
+      setMessage(error.response.data.detail || 'An error occurred');
+    }
   };
 
   return (
-    <div>
+    <div className="auth-container">
       <h2>Register</h2>
-      <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
-      <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-      <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={handleRegister}>Register</button>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit">Register</button>
+        {message && <p>{message}</p>}
+      </form>
     </div>
   );
 };
