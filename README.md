@@ -2,29 +2,21 @@
 
 The Asset Management Dashboard is a web application designed for managing and visualizing various types of assets, including commodities, currencies, rials, and stocks. The application has a React frontend and a FastAPI backend, providing a modern and efficient user experience for asset management.
 
+<p align="center">
+ <img src="WebShot.png" alt="web screenshot" width="600" height="300">
+</p>
+
+
 ## Project Structure
 
-- **frontend/**: Contains the React application for the user interface.
-- **backend/**: Contains the FastAPI application for handling API requests and authentication.
-
-## Features
-
-- **Frontend**:
-  - Manage and view different types of assets.
-  - User authentication (login and registration).
-  - Responsive and modern UI with navigation and asset management pages.
-
-- **Backend**:
-  - User authentication endpoints for login and registration.
-  - Basic asset management endpoints.
-  - Runs on FastAPI and can be extended for additional functionality.
+- **asset-management-dashboard/**: Contains the React application for the user interface.
+- **fastapi-backend/**: Contains the FastAPI application for handling API requests and authentication.
 
 ## Setup
 
 ### Prerequisites
 
 - [Docker](https://www.docker.com/get-started)
-- [Docker Compose](https://docs.docker.com/compose/install/)
 
 ### Getting Started
 
